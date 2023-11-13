@@ -7,7 +7,8 @@
 </x-slot>
 
 <div class="max-w-7xl mx-auto px-4">
-  <form action="">
+  <form method="post" action="{{ route('post.store') }}">
+    @csrf
     <div class="mt-8">
       <div class="w-full flex flex-col">
         <label for="title" class="font-semibold mt-4">Subject</label>
