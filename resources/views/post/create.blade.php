@@ -8,7 +8,7 @@
 
 <div class="max-w-7xl mx-auto px-4">
   @if(session('message'))
-  <div class="text-green-600 font-bold">
+  <div class="text-center text-lg py-2 text-slate-50 bg-teal-500 font-bold">
     {{session('message')}}
   </div>
   @endif
@@ -17,11 +17,17 @@
     <div class="mt-8">
       <div class="w-full flex flex-col">
         <label for="title" class="font-semibold mt-4">Subject</label>
-        <input type="text" name="title" class="w-auto py-2 border border-gray-300 rounded-md" id="title">
+        <x-input-error :messages="$errors->get('title')" class="mt-2" />
+        <input type="text" name="title" class="w-auto py-2 border border-gray-300 rounded-md"
+        id="title" value="{{old('title')}}">
       </div>
       <div class="w-full flex flex-col">
         <label for="body" class="font-semibold mt-4">Contents</label>
-        <textarea name="body" id="body" class="w-auto py-2 border border-gray-300 rounded-md" cols="30" rows="8"></textarea>
+        <x-input-error :messages="$errors->get('body')" class="mt-2" />
+        <textarea name="body" id="body"
+        class="w-auto py-2 border border-gray-300 rounded-md" cols="30" rows="8">
+          {{old('body')}}
+        </textarea>
       </div>
     </div>
 
